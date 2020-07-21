@@ -139,7 +139,16 @@ print('-----------')
 # make dictionary using animal name as key and type as the value
 #print sorted by animal type
 
-animal_dict1 = {'dog':'Harley', ''}
+animal_dict1 = {'dog':'Harley', 'rat':'Ratata', 'vaporean':'Hyperion'}
+sort_by_name = sorted(animal_dict1.items(), key=lambda x:str(x[1]))
+print(sort_by_name)
+
+print('-----------')
+animal_dict2 = {'BBBBHarley': "dog", 'Ratata': 'zat', "Hyperion":'aporean'}
+sort_by_type = sorted(animal_dict2.items(), key=lambda x:str(x[1]))
+print(sort_by_type)
+
+
 
 
 
