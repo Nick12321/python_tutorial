@@ -23,18 +23,24 @@ def welcome_message():
     player_name = 'Nick'
     print('Welcome, ' + player_name)
     return player_name    
+
+#announce win, display tries
+def winning_message(name, tries):
+    print('Congratulations ' + name + ", you won in: " + str(tries) + ' tries.')
     
+#announce loss
+def loosing_message(name, tries):
+    print('Try again ' + name + ", you didnt complete in 10 guesses.')
+
 #generate a random number
 def random_num():
     x=random.randint(1, max_number)+1
     return x
-
    
 #get a guess from keyboard
 def guess_input():
     player_guess = input('Guess a number: ')
     return player_guess
-
 
 
 #check whther the guess is correct
@@ -55,7 +61,7 @@ def print_score():
     
 #main program logic and loop
 def main():
-    tries = 0
+    tries = 1
     main_name = welcome_message()
     main_number = random_num()
     while tries < 10:
@@ -66,13 +72,14 @@ def main():
         if answer==1:
             print("Too high!")
         if answer==2:
-            print("You won!")
+            winning_message(main_name, tries)
             break
         tries+=1
+    if tries==10:
+        loosing_message(main_name, tries)
         
-        
-    
-    print('Number is: ' + str(main_number))
+
+
     
 
 if __name__=="__main__":
