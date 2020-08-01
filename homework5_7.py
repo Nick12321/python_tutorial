@@ -40,13 +40,18 @@ def random_num():
 #get a guess from keyboard
 def guess_input():
     player_guess = input('Guess a number: ')
-    return player_guess
+    if isinstance(player_guess, int) == True:
+        return player_guess
+    else:
+        print('Invalid selection. Try again!')
+        guess_input()
+        
 
 
 #check whther the guess is correct
 def guess_verify(verify_guess, actual_number):
-    verify_guess=int(verify_guess)
-    actual_number=int(actual_number)
+    #verify_guess=int(verify_guess)
+    #actual_number=int(actual_number)
     if verify_guess < actual_number:
         return(0)
     if verify_guess > actual_number:
@@ -89,13 +94,16 @@ def main_game(actual_number, name):
 def main():
     main_name = welcome_message()
     tries = []
+    score = []
     play_again=True
     while play_again==True:
         main_number = random_num()
         tries = main_game(main_number, main_name)
-        print(tries)
+        score.append(tries)
+        print(score)
         play_again=play_another()
-        
+
+###check where the 'Nonetype' is coming from... a passed variable with no return        
         
         
 
