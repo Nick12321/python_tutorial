@@ -19,8 +19,7 @@ max_tries = 10
 def welcome_message():
     print('Welcome! You guess a number between 1 & 100, we tell you higher or lower.')
     print('You have 10 tries to get it right!')
-    #player_name=input('Whats your name?: ')
-    player_name = 'Nick'
+    player_name=input('Whats your name?: ')
     print('Welcome, ' + player_name)
     return player_name    
 
@@ -38,20 +37,20 @@ def random_num():
     return x
    
 #get a guess from keyboard
+#error handling not working properly
 def guess_input():
-    player_guess = input('Guess a number: ')
-    if isinstance(player_guess, int) == True:
-        return player_guess
-    else:
+    player_guess=0
+    try:
+        player_guess = int(input('Guess a number: '))
+    except ValueError:
         print('Invalid selection. Try again!')
-        guess_input()
-        
-
+        player_guess=guess_input()
+    return player_guess
+    
 
 #check whther the guess is correct
 def guess_verify(verify_guess, actual_number):
-    #verify_guess=int(verify_guess)
-    #actual_number=int(actual_number)
+    actual_number=int(actual_number)
     if verify_guess < actual_number:
         return(0)
     if verify_guess > actual_number:
@@ -89,19 +88,42 @@ def main_game(actual_number, name):
             loosing_message(name, tries)
             return win, tries
         tries+=1
+
+#print final score
+def final_score(name, tries):
+    print('Thank you for playing, ' + name + '. Your final score(s):')
+    t=(len(tries))
+    i=0
+    win_loss = [element[0] for element in tries]
+    num_tries = [element[1] for element in tries]
+    while i<t:
+        if win_loss[i]=='win':
+            print("Won game " + str(i+1) + ' in ' + str(num_tries[i]) + ' attempts.')
+        if win_loss[i]=='loss':
+            print("Did not guess correct answer in game: " + str(i+1))
+        i+=1
+        
     
+    
+
 #main program logic
 def main():
     main_name = welcome_message()
-    tries = []
     score = []
     play_again=True
     while play_again==True:
         main_number = random_num()
         tries = main_game(main_number, main_name)
-        score.append(tries)
+        if tries[0]==True:
+            t=('win', tries[1])
+            score.append(t)
+        else:
+            t=('loss', tries[1])
+            score.append(t)
         print(score)
         play_again=play_another()
+    final_score(main_name, score)
+    
 
 ###check where the 'Nonetype' is coming from... a passed variable with no return        
         
