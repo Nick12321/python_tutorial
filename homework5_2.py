@@ -53,13 +53,13 @@ def guess_verify(verify_guess, actual_number):
         return(1)
     if verify_guess==actual_number:
         return(2)
+
+#main_game(number, )    
     
-    
-#main program logic and loop
+#main program logic
 def main():
     main_name = welcome_message()
     main_number = random_num()
-    print(main_number)
     tries = 1
     win = False
     while tries < 11:

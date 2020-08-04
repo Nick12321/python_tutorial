@@ -93,6 +93,8 @@ def main():
     tries = main_game(main_number, main_name)
     print(tries)
     play_again=play_another(main_name)
+    if play_again=='y':
+        
         
 
 if __name__=="__main__":

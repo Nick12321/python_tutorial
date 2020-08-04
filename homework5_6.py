@@ -89,11 +89,12 @@ def main_game(actual_number, name):
 def main():
     main_name = welcome_message()
     tries = []
+    score = []
     play_again=True
     while play_again==True:
         main_number = random_num()
         tries = main_game(main_number, main_name)
-        print(tries)
+        score.append(trie)
         play_again=play_another()
         
         

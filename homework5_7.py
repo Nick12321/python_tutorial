@@ -37,7 +37,6 @@ def random_num():
     return x
    
 #get a guess from keyboard
-#error handling not working properly
 def guess_input():
     player_guess=0
     try:
@@ -124,10 +123,6 @@ def main():
         play_again=play_another()
     final_score(main_name, score)
     
-
-###check where the 'Nonetype' is coming from... a passed variable with no return        
-        
-        
 
 if __name__=="__main__":
     main()
