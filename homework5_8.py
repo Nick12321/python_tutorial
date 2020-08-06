@@ -6,14 +6,11 @@ Created on Mon Jul 20 20:14:39 2020
 @author: nick
 """
 
-
 #Guess number between 1 & 100
 # Track attempts, and display current games attempts and last games attempts
 
-import random
+from guessing_game import Guessing_Game as gg
 max_number = 100
-max_tries = 10
-
 
 # welcome the player and explain the rules
 def welcome_message():
@@ -31,11 +28,6 @@ def winning_message(name, tries):
 def loosing_message(name, tries):
     print('Try again ' + name + ', you didnt complete in 10 guesses.')
 
-#generate a random number
-def random_num():
-    x=random.randint(1, max_number)+1
-    return x
-   
 #get a guess from keyboard
 def guess_input():
     player_guess=0
@@ -46,16 +38,6 @@ def guess_input():
         player_guess=guess_input()
     return player_guess
     
-
-#check whther the guess is correct
-def guess_verify(verify_guess, actual_number):
-    actual_number=int(actual_number)
-    if verify_guess < actual_number:
-        return(0)
-    if verify_guess > actual_number:
-        return(1)
-    if verify_guess==actual_number:
-        return(2)
 
 # Ask the player if they would like to play again
 def play_another():
@@ -113,7 +95,8 @@ def main():
     score = []
     play_again=True
     while play_again==True:
-        main_number = random_num()
+        player = Guessing_Game()
+        print(str())
         tries = main_game(main_number, main_name)
         if tries[0]==True:
             t=('win', tries[1])
@@ -127,3 +110,21 @@ def main():
 
 if __name__=="__main__":
     main()
+
+'''
+#check whther the guess is correct
+def guess_verify(verify_guess, actual_number):
+    actual_number=int(actual_number)
+    if verify_guess < actual_number:
+        return(0)
+    if verify_guess > actual_number:
+        return(1)
+    if verify_guess==actual_number:
+        return(2)
+'''
+'''
+#generate a random number
+def random_num():
+    x=random.randint(1, max_number)+1
+    return x
+'''
