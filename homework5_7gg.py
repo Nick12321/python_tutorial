@@ -20,8 +20,10 @@ def welcome_message():
     print('You have 10 tries to get it right!')
     # player_name=input('Whats your name?: ')
     player_name='Sall'
-    print('Welcome, ' + player_name)
-    return player_name    
+    p1 = gg(player_name)
+    print('Welcome, ' + p1.get_name())
+    #return player_name
+    ### just commented out this line - move from here back to main
 
 #announce win, display tries
 def winning_message(name, tries):
@@ -31,13 +33,6 @@ def winning_message(name, tries):
 def loosing_message(name, tries):
     print('Try again ' + name + ', you didnt complete in 10 guesses.')
 
-'''
-#generate a random number
-def random_num():
-    x=random.randint(1, max_number)+1
-    return x
-'''
-   
 #get a guess from keyboard
 def guess_input():
     player_guess=0
@@ -48,7 +43,6 @@ def guess_input():
         player_guess=guess_input()
     return player_guess
     
-
 #check whther the guess is correct
 def guess_verify(verify_guess, actual_number):
     actual_number=int(actual_number)
@@ -90,7 +84,8 @@ def final_score(name, tries):
 
 # game logic and loop
 def main_game(actual_number, name):
-    tries = 1
+    #tries = 1
+    # p1.new_game()
     win = False
     while tries < 11:
         main_guess = guess_input()
@@ -111,15 +106,13 @@ def main_game(actual_number, name):
 
 #main program logic
 def main():
-    main_name = welcome_message()
+    # main_name = welcome_message()
+    welcome_message()
     score = []
     play_again=True
     while play_again==True:
-        p1 = gg()
-        print(p1)
-        t1 = p1.return_random()
-        print(str(t1))
-        tries = main_game(main_number, main_name)
+        #p1 = gg()
+        tries = main_game(p1.return_random(), main_name)
         if tries[0]==True:
             t=('win', tries[1])
             score.append(t)

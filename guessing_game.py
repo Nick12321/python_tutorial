@@ -17,11 +17,15 @@ import random
 class Guessing_Game:
     
     #initialize class
-    def __init__(self):
-        print('here!!! initialized...---------')
+    def __init__(self, name):
         max_number=100
         self.random_num=random.randint(1, max_number)+1
         self.tries=[]
+        self.name = name
+        
+    #name getter
+    def get_name():
+        return self.name
     
     #compare guess to random number            
     def check_guess(self, guess):
@@ -35,8 +39,14 @@ class Guessing_Game:
     
     #getter for random_num
     def return_random(self):
-        print('here! ---------------')
         return self.random_num
+    
+    #set new game tries = 1
+    def new_game(self):
+        self.tries = 1
+        
+    #keep track of number of tries
+    def 
     
     
         
