@@ -10,7 +10,9 @@ Created on Mon Jul 20 20:14:39 2020
 #Guess number between 1 & 100
 # Track attempts, and display current games attempts and last games attempts
 
-from guessing_game import Guessing_Game as gg 
+from guessing_game import Guessing_Game as gg
+import random
+max_number = 100
 max_tries = 10
 
 
@@ -18,12 +20,10 @@ max_tries = 10
 def welcome_message():
     print('Welcome! You guess a number between 1 & 100, we tell you higher or lower.')
     print('You have 10 tries to get it right!')
-    # player_name=input('Whats your name?: ')
-    player_name='Sall'
-    p1 = gg(player_name)
-    print('Welcome, ' + p1.get_name())
-    #return player_name
-    ### just commented out this line - move from here back to main
+    player_name = 'Sall'
+    #player_name=input('Whats your name?: ')
+    print('Welcome, ' + player_name)
+    return player_name    
 
 #announce win, display tries
 def winning_message(name, tries):
@@ -33,6 +33,9 @@ def winning_message(name, tries):
 def loosing_message(name, tries):
     print('Try again ' + name + ', you didnt complete in 10 guesses.')
 
+    x=random.randint(1, max_number)+1
+    return x
+   
 #get a guess from keyboard
 def guess_input():
     player_guess=0
@@ -43,6 +46,7 @@ def guess_input():
         player_guess=guess_input()
     return player_guess
     
+
 #check whther the guess is correct
 def guess_verify(verify_guess, actual_number):
     actual_number=int(actual_number)
@@ -82,10 +86,10 @@ def final_score(name, tries):
     l=len(num_tries)
     print("You're average number of tries was: " + str(n/l))
 
+
 # game logic and loop
 def main_game(actual_number, name):
-    #tries = 1
-    # p1.new_game()
+    tries = 1
     win = False
     while tries < 11:
         main_guess = guess_input()
@@ -103,16 +107,15 @@ def main_game(actual_number, name):
             return win, tries
         tries+=1
 
-
 #main program logic
 def main():
-    # main_name = welcome_message()
-    welcome_message()
+    #main_name = welcome_message()
+    p1=gg(welcome_message())
     score = []
     play_again=True
     while play_again==True:
-        #p1 = gg()
-        tries = main_game(p1.return_random(), main_name)
+        # main_number = p1.return_random()
+        tries = main_game(p1.return_random(), p1.get_name())
         if tries[0]==True:
             t=('win', tries[1])
             score.append(t)
@@ -120,7 +123,7 @@ def main():
             t=('loss', tries[1])
             score.append(t)
         play_again=play_another()
-    final_score(main_name, score)
+    final_score(p1.get_name(), score)
     
 
 if __name__=="__main__":
