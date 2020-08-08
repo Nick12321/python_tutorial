@@ -18,22 +18,24 @@ class Guessing_Game:
     
     #initialize class
     def __init__(self):
-        random_num=random.randint(1, max_number)+1
-        tries=[]
-        max_tries = 10
+        print('here!!! initialized...---------')
+        max_number=100
+        self.random_num=random.randint(1, max_number)+1
+        self.tries=[]
     
     #compare guess to random number            
     def check_guess(self, guess):
         self.guess=int(guess)
         if self.guess < self.random_num:
-        return(0)
+            return(0)
         if self.guess > self.random_num:
-        return(1)
+            return(1)
         if self.guess==self.random_num:
-        return(2)
+            return(2)
     
     #getter for random_num
-    def return_random():
+    def return_random(self):
+        print('here! ---------------')
         return self.random_num
     
     
