@@ -21,13 +21,21 @@ class Guessing_Game:
         self.player_record=[]
         self.name = name
         self.tries=0
-        
+
+    #get random number
+    def return_random(self):
+        max_number=100
+        self.random_num=random.randint(1, max_number)+1
+        return self.random_num    
+    
     #get name
     def get_name(self):
-        print('here! ---------------')
-        print(self.name)
         return self.name
     
+    #recieve two variables (tuple???), record game win/loss and # of tries
+    def set_game_stat(self, win, tries):
+        self.player_record.append(win, tries)
+        
     #compare guess to random number            
     def check_guess(self, guess):
         self.guess=int(guess)
@@ -37,12 +45,6 @@ class Guessing_Game:
             return(1)
         if self.guess==self.random_num:
             return(2)
-    
-    #get random number
-    def return_random(self):
-        max_number=100
-        self.random_num=random.randint(1, max_number)+1
-        return self.random_num
     
     #set new game tries = 0
     def new_game(self):

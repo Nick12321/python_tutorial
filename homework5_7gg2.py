@@ -113,8 +113,8 @@ def main():
     score = []
     play_again=True
     while play_again==True:
-        #tries = main_game(p1.return_random(), p1.get_name())
-        past_game_stat = main_game(p1.return_random(), p1.get_name())
+        p1.set_game_stat = main_game(p1.return_random(), p1.get_name())
+        ### here. 
         if past_game_stat[0]==True:
             t=('win', past_game_stat[1])
             score.append(t)
