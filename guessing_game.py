@@ -38,12 +38,13 @@ class Guessing_Game:
             t='win'
         else:
             t='loss'
-        self.player_record.append(t, tries)
+        n=(t, tries)
+        self.player_record.append(n)
     
     #get game win / loss and # of tries
     def get_game_stat(self):
         return self.player_record
-        
+'''        
     #compare guess to random number            
     def check_guess(self, guess):
         self.guess=int(guess)
@@ -66,9 +67,7 @@ class Guessing_Game:
     def get_tries():
         return (self.tries)
     
-    
-        
-        
+'''  
     
     
         

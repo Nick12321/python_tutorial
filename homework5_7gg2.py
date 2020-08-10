@@ -75,7 +75,10 @@ def final_score(name, tries):
     win_loss = [element[0] for element in tries]
     num_tries = [element[1] for element in tries]
     n=0
+    print(str(0))
     t=(len(tries))
+    print(str(t))
+    
     while i<t:
         if win_loss[i]=='win':
             print("Won game " + str(i+1) + ' in ' + str(num_tries[i]) + ' attempts.')
