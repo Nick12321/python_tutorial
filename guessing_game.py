@@ -33,13 +33,8 @@ class Guessing_Game:
         return self.name
     
     #set game win/loss and # of tries, create tuple and store in list
-    def set_game_stat(self, win, tries):
-        if win==True:
-            t='win'
-        else:
-            t='loss'
-        n=(t, tries)
-        self.player_record.append(n)
+    def set_game_stat(self, tries):
+        self.player_record.append(tries)
     
     #get game win / loss and # of tries
     def get_game_stat(self):

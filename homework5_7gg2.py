@@ -75,10 +75,7 @@ def final_score(name, tries):
     win_loss = [element[0] for element in tries]
     num_tries = [element[1] for element in tries]
     n=0
-    print(str(0))
     t=(len(tries))
-    print(str(t))
-    
     while i<t:
         if win_loss[i]=='win':
             print("Won game " + str(i+1) + ' in ' + str(num_tries[i]) + ' attempts.')
@@ -87,8 +84,6 @@ def final_score(name, tries):
         n=n+num_tries[i]
         i+=1
     l=len(num_tries)
-    print(str(n))
-    print(str(l))
     print("You're average number of tries was: " + str(n/l))
 
 
@@ -106,19 +101,21 @@ def main_game(actual_number, name):
         if answer==2:
             win=True
             winning_message(name, tries)
-            return win, tries
+            win_loss = "win"
+            return win_loss, tries
         if tries==10 and win==False:
             loosing_message(name, tries)
-            return win, tries
+            win_loss = "loss"
+            return win_loss, tries
         tries+=1
 
 #main program logic
 def main():
     p1=gg(welcome_message())
-    score = []
     play_again=True
     while play_again==True:
-        p1.set_game_stat = main_game(p1.return_random(), p1.get_name())
+        n = main_game(p1.return_random(), p1.get_name())
+        p1.set_game_stat(n)
         play_again=play_another()
     final_score(p1.get_name(), p1.get_game_stat())
     
