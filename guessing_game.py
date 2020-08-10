@@ -32,9 +32,17 @@ class Guessing_Game:
     def get_name(self):
         return self.name
     
-    #recieve two variables (tuple???), record game win/loss and # of tries
+    #set game win/loss and # of tries, create tuple and store in list
     def set_game_stat(self, win, tries):
-        self.player_record.append(win, tries)
+        if win==True:
+            t='win'
+        else:
+            t='loss'
+        self.player_record.append(t, tries)
+    
+    #get game win / loss and # of tries
+    def get_game_stat(self):
+        return self.player_record
         
     #compare guess to random number            
     def check_guess(self, guess):

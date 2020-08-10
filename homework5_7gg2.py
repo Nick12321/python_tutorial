@@ -47,7 +47,7 @@ def guess_input():
     return player_guess
     
 
-#check whther the guess is correct
+#check whether the guess is correct
 def guess_verify(verify_guess, actual_number):
     actual_number=int(actual_number)
     if verify_guess < actual_number:
@@ -71,11 +71,11 @@ def play_another():
 #print final score
 def final_score(name, tries):
     print('Thank you for playing, ' + name + '. Your final score(s):')
-    t=(len(tries))
     i=0
     win_loss = [element[0] for element in tries]
     num_tries = [element[1] for element in tries]
     n=0
+    t=(len(tries))
     while i<t:
         if win_loss[i]=='win':
             print("Won game " + str(i+1) + ' in ' + str(num_tries[i]) + ' attempts.')
@@ -84,6 +84,8 @@ def final_score(name, tries):
         n=n+num_tries[i]
         i+=1
     l=len(num_tries)
+    print(str(n))
+    print(str(l))
     print("You're average number of tries was: " + str(n/l))
 
 
@@ -114,15 +116,8 @@ def main():
     play_again=True
     while play_again==True:
         p1.set_game_stat = main_game(p1.return_random(), p1.get_name())
-        ### here. 
-        if past_game_stat[0]==True:
-            t=('win', past_game_stat[1])
-            score.append(t)
-        else:
-            t=('loss', past_game_stat[1])
-            score.append(t)
         play_again=play_another()
-    final_score(p1.get_name(), score)
+    final_score(p1.get_name(), p1.get_game_stat())
     
 
 if __name__=="__main__":
