@@ -76,3 +76,37 @@ while line:
         print(t)
     line=f.readline()
 f.close()
+
+#try - except block will catch file error
+try:
+    f=open('test.txt', 'r')
+    for line in f.readlines():
+        print(line)
+    f.close()
+except IOError:
+    print('cannot open file test.txt')
+    
+#write object to file using pickle
+class Book:
+    def__init__(self, title, author):
+        self.title=title
+        self.author=author
+        
+    def__str__(self):
+        return "Book: "+self.title+ " written by: " + self.author
+    
+b=Book("Wizard of Oz","L. Frank Baum")
+
+#use pickle to create the file and write the object
+import pickle
+
+f=open("book.p", "wb")
+pickle.dump(b,f)
+f.close()
+
+#use pickle to read the file
+f=open("book.p", "rb")
+book=pickle.load(f)
+f.close()
+#print the book
+print(book)
