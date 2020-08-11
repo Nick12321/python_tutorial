@@ -40,3 +40,39 @@ f = open('test.txt')
 for line in f.readlines():
     print(line)
 f.close() #close the file
+
+#write lines to end of file
+f=open('test.txt', 'a')
+f.write('I like Python')
+f.write('\n')
+f.close()
+
+#Open the file for read
+f=open('test.txt')
+#read one line at a time until empty
+for line in f.readlines():
+    print(line)
+f.close()
+
+#Write to a csv file
+#write lines to end of file
+f=open('test.csv', 'w')
+f.write('one,two,three,four')
+f.write('\n')
+f.close()
+
+#read from a CSV file
+#strip method removes end of line character
+#split function seperate words between commas
+f=open('test.csv')
+line=f.readline()
+while line:
+    #strip removes '\n'
+    #split seperates line into tokens
+    tokens=line.strip().split(",")
+    print(tokens)
+    #printing out individual token
+    for t in tokens:
+        print(t)
+    line=f.readline()
+f.close()
