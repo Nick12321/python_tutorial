@@ -11,7 +11,7 @@ Created on Mon Aug 10 19:33:21 2020
 f=open("test.txt", "w")
 f.write("I like programming")
 f.write("\n")
-f.write("I like programming")
+f.write("I kkkkkkkk")
 f.write("\n")
 f.write("I like programming")
 f.write("\n")
@@ -69,6 +69,7 @@ line=f.readline()
 while line:
     #strip removes '\n'
     #split seperates line into tokens
+    print('here! ------------------')
     tokens=line.strip().split(",")
     print(tokens)
     #printing out individual token
@@ -76,6 +77,7 @@ while line:
         print(t)
     line=f.readline()
 f.close()
+print('now here ----------------')
 
 #try - except block will catch file error
 try:
@@ -88,11 +90,11 @@ except IOError:
     
 #write object to file using pickle
 class Book:
-    def__init__(self, title, author):
+    def __init__(self, title, author):
         self.title=title
         self.author=author
         
-    def__str__(self):
+    def __str__(self):
         return "Book: "+self.title+ " written by: " + self.author
     
 b=Book("Wizard of Oz","L. Frank Baum")
