@@ -13,18 +13,11 @@ story=[]
 
 try:
     f=open('story.txt', 'r')
-    for file_line in f.readlines():
-        story.append(file_line)
-    f.close()
 except IOError:
     print('cannot open file story.txt')
     
-print(story)
-
-
 #num_lines = 0
 
-story_lines=[]
 line=f.readline()
 
 while line:
@@ -34,4 +27,9 @@ while line:
 l=len(story_lines)
 
 f.close()
-
+"""
+for file_line in f.readlines():
+        story.append(file_line)
+    f.close()
+    
+"""
