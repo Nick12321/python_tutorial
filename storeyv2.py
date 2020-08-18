@@ -26,6 +26,10 @@ while line:
     #story_lines.append(line_tokens)
     num_lines+=1
     print(line_tokens)
+    length=len(line_tokens)
+    if length>1:
+        print('USEFUL!!!!!!!!!!!!!!!!')
+    
     """
     for word in line_tokens:
         word=line_tokens.split(" ")
@@ -36,7 +40,7 @@ while line:
             print('here! ------------------')
         story_lines.append(word)
         """
-    #print(line_tokens)
+    print(str(len(line_tokens)))    
     line=f.readline()
 
 print(str(num_lines))
