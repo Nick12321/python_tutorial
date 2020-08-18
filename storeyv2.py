@@ -9,24 +9,40 @@ Created on Tue Aug 11 22:53:09 2020
 #read story.txt and report number of lines, sentences, words, and letters
 #keep track of each word count in a dictionary
 
-story=[]
+story_lines=[]
+char_replace=[",",":","(",")","+"]
 
 try:
     f=open('story.txt', 'r')
 except IOError:
     print('cannot open file story.txt')
     
-#num_lines = 0
+num_lines = 0
 
 line=f.readline()
 
 while line:
-    tokens=line.strip()
-    story_lines.append(tokens)
+    line_tokens=line.strip().split(" ")
+    #story_lines.append(line_tokens)
+    num_lines+=1
+    print(line_tokens)
+    """
+    for word in line_tokens:
+        word=line_tokens.split(" ")
+        print(word)
+        
+        for char in char_replace:
+            word=word.replace(char_replace[char],"")
+            print('here! ------------------')
+        story_lines.append(word)
+        """
+    #print(line_tokens)
+    line=f.readline()
 
-l=len(story_lines)
-
+print(str(num_lines))
 f.close()
+
+
 """
 for file_line in f.readlines():
         story.append(file_line)
