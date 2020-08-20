@@ -24,7 +24,7 @@ except IOError:
     print('cannot open file story.txt')
     
 num_lines = 0
-num_sentences = 0
+#num_sentences = 0
 num_words = 0
 num_letters = 0
 word_dict = {}
@@ -44,6 +44,7 @@ def purify(line):
             for end in line_end:
                 if end == letter:
                     num_sentences #how to pass number of sentences???
+                    #in-line, vs function(method?)(), vs class
         word_count(new_word)
     # what next?
 
