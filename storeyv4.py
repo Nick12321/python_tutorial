@@ -14,39 +14,49 @@ Created on Tue Aug 11 22:53:09 2020
 #while words are still 'whole' in an array,
 #count the number of words, and put them in a dictionary while counting.
 
-story_lines=[]
-char_replace=[",",":","(",")","+", "..", '"']
-line_end=[".", "!", "?"]
 
+#open file with error handling
 try:
     f=open('story.txt', 'r')
 except IOError:
     print('cannot open file story.txt')
     
+#set main variables
 num_lines = 0
-#num_sentences = 0
 num_words = 0
 num_letters = 0
+num_sentences = 0
 word_dict = {}
+story_lines=[]
+char_replace=[",",":","(",")","+", "..", '"']
+line_end=[".", "!", "?"]
 
+#add to dictionary, key = word, value = number of words
 def word_count(word):
     if word not in word_dict.keys():
         word_dict[word] = 0
     word_dict[word] += 1
 
+#break up sentences, discard irrelevant characters
 def purify(line):
+    num_sentences = 0
+    num_letters = 0
+    num_words = 0
     for word in line:
+        num_words += 1
         new_word=''
         for letter in word:
             for char in char_replace:
-                if char != letter:
-                    new_word=new_word+letter
+                if char == letter:
+                    letter = ""
             for end in line_end:
                 if end == letter:
-                    num_sentences #how to pass number of sentences???
-                    #in-line, vs function(method?)(), vs class
+                    num_sentences += 1
+            new_word=new_word+letter
+            num_letters+=1
         word_count(new_word)
-    # what next?
+    values=(num_sentences, num_words, num_letters)
+    return values
 
 line=f.readline()
 while line:
@@ -54,11 +64,15 @@ while line:
     num_lines+=1
     if len(line_tokens)>1:
         print(line_tokens)
-        #break up the sentence, purify it, count letters, 
-        #reassemble word, then send to word_count()
         purified=purify(line_tokens)
-        
+        num_sentences+=purified[0]
+        num_words+=purified[1]
+        num_letters+=purified[2]
     line=f.readline()
 print(word_dict)
-print(str(num_lines))
+print("Number of letters: " + str(num_letters))
+print("Number of words: " + str(num_words))
+print("Number of sentences: " + str(num_sentences))
+print("Number of lines: " + str(num_lines))
+
 f.close()
