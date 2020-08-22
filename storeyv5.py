@@ -85,7 +85,8 @@ lin=f'Number of lines: {num_lines}\n'
 t=let+w+s+lin
 f.write(t)
 sorted_words=sorted(word_dict.items(), key=lambda x:x[1], reverse=True)
-f.write(str(sorted_words))
+for k,v in sorted_words:
+    f.write(k + ":" + str(v) + "\n")
 f.close()
 
 #open storey_report.txt, and print to screen
