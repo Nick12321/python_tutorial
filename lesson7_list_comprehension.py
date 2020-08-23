@@ -39,8 +39,23 @@ print(new_list)
 oneD_array=[0 for i in range(3)]
 print(oneD_array)
 
+#create two dimensional array with preset values
 num_rows=2
 num_columns=3
 twoD_array=[[0 for i in range(num_columns)]for j in range(num_rows)]
 print(twoD_array)
+
+#use list comprehension to sort values
+mixed_list=['a', 3, 'b', 5]
+sorted_list=sorted([str(x) for x in mixed_list])
+print(sorted_list)
+
+#use list comprehension to remove '\n' from a list of strings
+list1=['cat\n', 'dog\n', 'lion\n']
+print(list1)
+list2=[x.replace('\n',"") for x in list1]
+print(list2)
+
+
+
 

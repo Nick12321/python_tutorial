@@ -76,3 +76,8 @@ print("Number of sentences: " + str(num_sentences))
 print("Number of lines: " + str(num_lines))
 
 f.close()
+
+# whitespace_chars = " \t\n\r\f" - space, tab, newline, return, formfeed
+#list_of_words = mystring.split( \t\n\r\f,.;!?'\"()")
+#if word in list_of_words:
+#    print 'success'
