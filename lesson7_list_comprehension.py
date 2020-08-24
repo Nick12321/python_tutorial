@@ -56,25 +56,26 @@ print(list1)
 list2=[x.replace('\n',"") for x in list1]
 print(list2)
 
-#Iterator below does not work. Have asked Ed for clarification
-"""
+#Iterator and next functions
+
 class Squares:
     def __iter__(self):
         self.x=1
         return self
 
-def __next__(self):
-    if self.x<=10:
-        x=self.x
-        self.x+=1
-        return x*x
-    else:
-        raise StopIteration
+    def __next__(self):
+        if self.x<=10:
+            x=self.x
+            self.x+=1
+            return x*x
+        else:
+            raise StopIteration
         
 itr=iter(Squares())
 for x in itr:
     print(x)
-"""
+print("HERE!--------------------------------")
+
 #simple Generator
 def simpleGenerator():
     yield 1200
@@ -141,3 +142,21 @@ def f(x):
 itr=map(f, list1)
 list2=list(itr)
 print(list2)
+
+###########################insert other version here
+
+#To Do:Make an odd function and use filter to print out odd numbers
+def odd(x):
+    return x%2!=0
+
+itr=filter(odd, list1)
+print(list(itr))
+
+# Use the filter function and a lambda function to print odd numbers
+itr=filter(lambda x: x%2!=0, list1)
+print(list(itr))
+
+#Use map, filter, and lambda to print all even squared numbers
+
+itr=filter(lambda x:x%2==0, map(lambda x:x*x, list1))
+print(list(itr))
