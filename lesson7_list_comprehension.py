@@ -143,7 +143,26 @@ itr=map(f, list1)
 list2=list(itr)
 print(list2)
 
-###########################insert other version here
+#Lambda functions
+list1=[1,2,3,4,5,6]
+itr=map(lambda y: y+1, list1)
+print(list(itr))
+
+#To Do: make a lambda square function using map
+itr=map(lambda z: z*z, list1)
+print(list(itr))
+
+# Filter operates like map, but returns iterator if values meet specific criteria
+
+def even(x):
+    return x%2==0
+
+itr=filter(even, list1)
+print(list(itr))
+
+#Filter with lambda function
+itr=filter(lambda m: m%2==0, list1)
+print(list(itr))
 
 #To Do:Make an odd function and use filter to print out odd numbers
 def odd(x):
