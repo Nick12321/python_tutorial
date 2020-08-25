@@ -136,7 +136,7 @@ print(list2)
 
 #To Do: make a square function and use map to square the numbers
 
-list1=[1,2,3,4,5,6,7,8,9]
+list1=[1,2,3,4,5,6,7,8,9,10]
 def f(x):
     return x*x
 itr=map(f, list1)
@@ -160,3 +160,7 @@ print(list(itr))
 
 itr=filter(lambda x:x%2==0, map(lambda x:x*x, list1))
 print(list(itr))
+
+
+
+
