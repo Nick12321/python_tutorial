@@ -180,6 +180,67 @@ print(list(itr))
 itr=filter(lambda x:x%2==0, map(lambda x:x*x, list1))
 print(list(itr))
 
+# Reduce takes the first two numbers of a list, applies a function to them
+#then continue applying function to them
+def add(x,y):
+    return x+y
 
+from functools import reduce
+list1=[1,2,3,4,5,6]
+list2=reduce(add, list1)
+print(list2)
 
+list2=reduce((lambda x,y: x+y), list1)
+print(list2)
 
+#To Do - apply reduce function on a function that multiplies two numbers together
+
+def multiply(x,y):
+    return x*y
+
+list3 = reduce(multiply, list1)
+print(list3)
+
+#Recursion
+def multn(n):
+    if n==0:
+        return 1
+    else:
+        return multn(n-1)*n
+x=multn(5)
+print(x)
+
+def pown(b,n):
+    if(n==0):
+        return 1
+    else:
+        return pown(b,n-1)*b
+
+x=pown(2,3)
+print(x)
+
+#Recursion -summing all numbers in a sequence
+
+def seqn(n):
+    if(n==0):
+        return 0
+    else:
+        x=(n*(n+1))/2
+        print(x)
+        return x+seqn(n-1)
+
+x=seqn(5)
+print(x)
+
+#Recursion - Fibonacci Sequence
+
+def fib(n):
+    if n==0:
+        return 0
+    elif n==1:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
+    
+x=fib(10)
+print(x)
