@@ -244,3 +244,62 @@ def fib(n):
     
 x=fib(10)
 print(x)
+
+#Combinations: num of combinations for n letters
+# and r choices (out of 5 letters, # of combo of 2)
+def combinations(n,r):
+    if r==0 or n==r:
+        return 1
+    else:
+        return combinations(n-1, r) + combinations(n-1, r-1)
+print(combinations(15,3))
+
+#Recursion - Print words in reverse, or forwards
+#depending on where print statement is.
+def print_reverse(s,n):
+    if n==0:
+        print('\n')
+    else:
+        print(s[n-1], end='')
+        print_reverse(s, n-1)
+        #print(s[n-1], end='')
+s='asjkdhjkafdhaskjfhaskj'
+print_reverse(s,len(s))
+#print('\n')
+
+#Palindrome - recursive function returns True / False
+def is_palindrome(s,i,j):
+    if i>=j:
+        return True
+    else:
+        if s[i] != s[j]:
+            return False
+        else:
+            return is_palindrome(s, i+1, j-1)
+
+s='radar'
+print(is_palindrome(s, 0, len(s)-1))
+s='asjkdhjkafdhaskjfhaskjjksahfjksahdfakjhdkjsa'
+print(is_palindrome(s, 0, len(s)-1))
+s='da da da'
+print(is_palindrome(s, 0, len(s)-1))
+
+#Permutations
+#Print permutations of (ex ABC)
+
+def print_permutations(s,i,j):
+    if i==j:
+        print(s)
+    else:
+        for k in range(i, j+1):
+            #swap i and k
+            c=s[i]
+            #s[i] = s[k]
+            s=s[:i]+s[k]+s[i+1:]
+            #s[k]=c
+            s=s[:k]+c+s[k+1:]
+            print(s)
+
+print("HERE!--------------------")
+s='ABC'
+print_permutations(s, 0, len(s)-1)
