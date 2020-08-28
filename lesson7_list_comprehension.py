@@ -300,6 +300,25 @@ def print_permutations(s,i,j):
             s=s[:k]+c+s[k+1:]
             print(s)
 
-print("HERE!--------------------")
 s='ABC'
 print_permutations(s, 0, len(s)-1)
+
+#Combinations
+
+def print_combinations(s, combs, start, end, n, r):
+    if n==r:
+        for j in range(r+1):
+            print(combs[j],end="")
+        print("")
+        return
+    #replace n with all possible elements
+    i=start
+    while(i<=end and end -i +1 >= r-n):
+        combs=combs[:n] + s[i] + combs[n+1:]
+        print_combinations(s, combs, i+1, end, n+1, r)
+        i+=1
+
+s="ABCDE"
+combs=" "
+print_combinations(s, combs, 0, len(s)-1, 0, 2)
+
