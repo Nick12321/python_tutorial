@@ -285,26 +285,33 @@ s='da da da'
 print(is_palindrome(s, 0, len(s)-1))
 
 #Permutations
-#Print permutations of (ex ABC)
-
-def print_permutations(s,i,j):
-    if i==j:
+# print permutations of string s
+def print_permutations(s, i, j):
+    # print out permutation
+    if i == j:
         print(s)
     else:
         for k in range(i, j+1):
-            #swap i and k
-            c=s[i]
-            #s[i] = s[k]
-            s=s[:i]+s[k]+s[i+1:]
-            #s[k]=c
-            s=s[:k]+c+s[k+1:]
-            print(s)
+            # swap i and k
+            c = s[i]
+            # s[i] = s[k]
+            s = s[:i] + s[k] + s[i+1:]
+            #s[k] = c
+            s = s[:k] + c + s[k+1:]
 
+            # recursive call
+            print_permutations(s, i + 1, j)
+            # put back, swap i and k
+
+            c = s[i]
+            #s[i] = s[k]
+            s = s[:i] + s[k] + s[i+1:]
+            #s[k] = c;
+            s = s[:k] + c + s[k+1:]
 s='ABC'
 print_permutations(s, 0, len(s)-1)
 
 #Combinations
-
 def print_combinations(s, combs, start, end, n, r):
     if n==r:
         for j in range(r+1):
@@ -318,7 +325,41 @@ def print_combinations(s, combs, start, end, n, r):
         print_combinations(s, combs, i+1, end, n+1, r)
         i+=1
 
+print('\n')
+#Combinations
+
 s="ABCDE"
-combs=" "
+combs=" " * (len(s)+1)
+print_combinations(s, combs, 0, len(s)-1, 0, 1)
+
 print_combinations(s, combs, 0, len(s)-1, 0, 2)
 
+print_combinations(s, combs, 0, len(s)-1, 0, 3)
+print_combinations(s, combs, 0, len(s)-1, 0, 4)
+print_combinations(s, combs, 0, len(s)-1, 0, 5)
+
+#To Do: recursive reverse string
+#this one works:
+def reverse_string(s, n):
+    if n==0:
+        print('\n')
+    else:
+        print(s[n-1])
+        n-=1
+        reverse_string(s, n)
+s='abcdefghijklmnop'
+reverse_string(s, len(s))
+
+#Get one that prints to a string
+def reverse_string2(s, n, r):
+    if n==0:
+        return r
+    else:
+        r=r+(s[n-1])
+        n-=1
+        reverse_string2(s, n, r)
+s='abcdefghijklmnop'
+r=''
+p=reverse_string2(s, len(s), r)
+print("here!---------------------")
+print(p)
