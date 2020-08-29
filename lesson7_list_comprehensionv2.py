@@ -363,17 +363,44 @@ print(reverse_string(s, len(s)-1))
 #Write function that searches for a number in a list and returns
 # True if found, or False if not found.
 
-
-def search_digit(d, x, l):
-    if l<0:
-        print('False!')
+def search_digit(s,i,j):
+    if j<0:
+        return False
     else:
-        if d[l]==x:
-            print('here!-----------')
-            print('True!')
-    print(str(l))
-    search_digit(d, x, l-1)
+        if s[j] == i:
+            return True
+        else:
+            return search_digit(s, i, j-1)
 
-d=[1,2,3,4,5,6,7,8,9]
-print(search_digit(d, 1, len(d)-1))
-    
+s=[1,2,3,4,5,6,7,8,9]
+print(search_digit(s, 1, len(s)-1))
+
+print('here!-------------------')
+#Another way of searching for number
+def search_digit(d, x):
+
+     if d == 0:
+          return False
+
+     elif d % 10 == x:
+         print(d%10)
+         return True
+
+     else:
+         print(d//10)
+         return search_digit(d//10,x)
+
+print(search_digit(12346789,8))
+print(search_digit(12346789,5))
+
+#recursive function that recieves list of digits of any length and adds them
+# example: sum_digits(1234) = 10
+
+def sum_digits(d):
+     if d == 0:
+          return 0
+     else:
+          return sum_digits(d//10) + d % 10
+
+print(sum_digits(123456789))
+
