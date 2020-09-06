@@ -1,17 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Sep  4 18:01:26 2020
+Created on Sat Sep  5 13:41:32 2020
 
 @author: nick
 """
 
-"""
-linearRegression.py
-"""
 import numpy as np
 import matplotlib.pyplot as plt
-print('Linear Regression')
+print('Least Squares')
 print('y = mx + b')
 n = 20 # number of points
 # make random normal distribution x,y points
@@ -21,11 +18,11 @@ y = np.random.normal(0,.25,n)
 # y2 = mx + b
 
 # calculate m
-# ( Σ y )( Σ x^2) – (Σ x) (Σ x y )
+# Σ (x- x` )( y -y` )
 # m = -----------------------------
-# n ( Σ x^2) - ( Σ x)^2
-top = (np.sum(y)*np.sum(x*x) - np.sum(x) * np.sum(x*y))
-bottom = (n * np.sum(x*x) - np.sum(x) * np.sum(x))
+# Σ (xi - x`)^2
+top = np.sum((x- np.mean(x))*(y - np.mean(y)))
+bottom = np.sum() - np.sum(x) * np.sum(x))
 m=top/bottom
 print('m = ',m)
 
