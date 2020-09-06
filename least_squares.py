@@ -22,7 +22,7 @@ y = np.random.normal(0,.25,n)
 # m = -----------------------------
 # Σ (xi - x`)^2
 top = np.sum((x- np.mean(x))*(y - np.mean(y)))
-bottom = np.sum() - np.sum(x) * np.sum(x))
+bottom = np.sum() - np.sum(x) * np.sum(x)
 m=top/bottom
 print('m = ',m)
 
