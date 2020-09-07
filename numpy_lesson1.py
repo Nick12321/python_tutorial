@@ -113,3 +113,77 @@ b=np.array([[5,6],[7,8]])
 c=a+b #or c=np.add(a,b)
 print(c)
 
+#subtract two arrays
+c=b-a
+c=np.subtract(a,b)
+print(c)
+
+#multiply two arrays
+c=a*b
+print(c)
+
+#divide two arrays
+c=a/b
+print(c)
+
+#square root a numpy array
+c=np.sqrt(a)
+print(c)
+
+#matrix multiply two arrays (dot product)
+c=np.matmul(a,b)
+c=a@b
+c=a.dot(b)
+c=np.dot(a,b)
+print(c)
+
+#sum all element in an array
+a=np.array([1,2,3,4,5])
+s=np.sum(a)
+print(s)
+
+#compute sum of each column
+#axis=0 means x column
+a=np.array([[1,2],[3,4]])
+s=np.sum(a, axis=0)
+print(s)
+
+#compute sum of each row
+#axis=1 means y row
+s=np.sum(a, axis=1)
+print(s)
+
+#transpose a 2dimensional array
+c=a.T
+print(c)
+
+#inverse of a matrix
+#linalg is a submodule of Numpy that provides additional math
+c=np.linalg.inv(a)
+print(c)
+
+#add a column of 1's to an array
+x=[1,2,3,4,5]
+y=np.ones(5)
+c=np.c_[x,y]
+print(c)
+
+#Numpy statistic operations
+a=np.array([1,3,2])
+print(a.min()) #minimum value
+print(a.max()) #maximum value in array
+print(a.argmin()) #index of min
+print(a.argmax()) #index of max
+print(a.mean()) #mean value of array
+print(np.median(a)) #median value
+print(a.std()) #standard deviation of array
+
+#Median of 2 dimensional array
+b=np.array([[1,2,3],[5,6,1]])
+print(np.median(b))
+
+#Median of 2 dimensional array along x axis
+print(np.median(b, axis=0))
+
+#median of two dimensional array along y axis
+print(np.median(b,axis=1))
