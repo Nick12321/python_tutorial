@@ -65,3 +65,51 @@ print(a)
 a=np.random.normal(0,1,(3,3))
 print(a)
 
+#concatenate 1 dimensional arrays together
+x=np.array([1,2,3])
+y=np.array([4,5,6])
+a=np.concatenate([x,y])
+print(a)
+
+#Concatenate two dimensional arrays together
+x=np.array([[1,2,3],[4,5,6]])
+y=np.array([[1,2,3],[4,5,6]])
+b=np.concatenate([x,y])
+print(b)
+
+#Concatenate 2 dimensional arrays together (column wise)
+#x=np.array([[1,2,3],[4,5,6]])
+#y=np.array([[1,2,3],[4,5,6]])
+#b=np.concatenate([x,y],axes=1)
+#print(b)
+
+#combining 2d array with 1d array w vstack
+a=np.array([1,2,3])
+b=np.array([[4,5,6],[7,8,9]])
+x=np.vstack([b,a])
+print(x)
+
+#stack 1d array on left side of a 2d array w hstack
+a=np.array([[1],[2]])
+b=np.array([[4,5,6],[7,8,9]])
+x=np.hstack([b,a])
+print(x)
+
+#split 1d array into 2d array using slice
+a=np.array([1,2])
+a=np.split(a,2)
+print(a)
+
+print(type(a))
+
+#we can now use hstack more conveniently
+b=np.array([[4,5,6],[7,8,9]])
+x=np.hstack([b,a])
+print(x)
+
+#Numpy mathematical operations
+a=np.array([[1,2],[3,4]])
+b=np.array([[5,6],[7,8]])
+c=a+b #or c=np.add(a,b)
+print(c)
+
